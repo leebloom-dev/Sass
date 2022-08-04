@@ -5,6 +5,9 @@ x < 600px: ---------    Phone
 1200px - 1800px: ---    Default
 1800px < x: --------    Big Monitors
 */
+.navigation {
+  /* HAMBURGER MENU ICON */
+}
 .navigation__checkbox {
   display: none;
 }
@@ -31,6 +34,39 @@ x < 600px: ---------    Phone
     top: 3rem;
     right: 3rem;
   }
+}
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem;
+  /* 
+      Using the psuedo-element ::before will create content 
+      at the starting tag and ::after at the end of the 
+      tag.
+  */
+}
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  width: 3rem;
+  height: 2px;
+  background-color: #777;
+  display: inline-block;
+  transition: all 0.3s;
+}
+.navigation__icon::before, .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.navigation__icon::before {
+  top: -0.8rem;
+}
+.navigation__icon::after {
+  top: 0.8rem;
+}
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem;
+}
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem;
 }
 
 body {
