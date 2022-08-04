@@ -1,8 +1,10 @@
 .navigation {
+    /* NAVIGATION CHECKBOX */
     &__checkbox {
         display: none;
     }
 
+    /* NAVIGATION BUTTON */
     &__button {
         // location
         position: fixed;
@@ -26,71 +28,108 @@
             right: 3rem;
         }
     }
-
-     /* HAMBURGER MENU ICON */
-     &__icon {
-        position: relative;
-        margin-top: 3.5rem;
-
-        /* 
-            Using the psuedo-element ::before will create content 
-            at the starting tag and ::after at the end of the 
-            tag.
-        */
-
-        // Physical Attributes
-        &,
-        &::before,
-        &::after {
-            width: 3rem;
-            height: 2px;
-            background-color: $color-grey-dark;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-
-        // Location
-        &::before,
-        &::after {
-            content: "";
-            position: absolute; // within the button
-            left: 0;
-        }
-
-        // Vertical Location for before and after
-        &::before {top: -0.8rem;}
-        &::after {top: 0.8rem;}
-    }
-
-    // Hover over icon vertical location ::before
-    &__button:hover &__icon::before {
-        top: -1rem;
-    }
-
-    // Hover over icon vertical location ::after
-    &__button:hover &__icon::after {
-        top: 1rem;
-    }
-
-    /* HAMBURGER MENU ICON - CHECKED */
-    // After the __checkbox is checked, select the first element of __button 
-    // after __checkbox with the child __icon.
-    // This icon bar will be transparent
-    &__checkbox:checked + &__button &__icon {
-        background-color: transparent;
-        // transform: rotateY(90deg);
-    }
-
-    // Rotate ::before icon bar
-    &__checkbox:checked + &__button &__icon::before {
-        top: 0;
-        transform: rotateZ(135deg);
-    }
     
-    // Rotate ::after icon bar
-    &__checkbox:checked + &__button &__icon::after {
-        top: 0;
-        transform: rotateZ(-135deg);
+        /* ICON - HAMBURGER STYLE */
+        &__icon {
+            position: relative;
+            margin-top: 3.5rem;
+
+            /* 
+                Using the psuedo-element ::before will create content 
+                at the starting tag and ::after at the end of the 
+                tag.
+            */
+
+            // Physical Attributes
+            &,
+            &::before,
+            &::after {
+                width: 3rem;
+                height: 2px;
+                background-color: $color-grey-dark;
+                display: inline-block;
+                transition: all 0.3s;
+            }
+
+            // Location
+            &::before,
+            &::after {
+                content: "";
+                position: absolute; // within the button
+                left: 0;
+            }
+
+            // Vertical Location for before and after
+            &::before {top: -0.8rem;}
+            &::after {top: 0.8rem;}
+        }
+
+        // Hover over icon vertical location ::before
+        &__button:hover &__icon::before {
+            top: -1rem;
+        }
+    
+        // Hover over icon vertical location ::after
+        &__button:hover &__icon::after {
+            top: 1rem;
+        }
+    
+        /* HAMBURGER MENU ICON - CHECKED */
+        // After the __checkbox is checked, select the first element of __button 
+        // after __checkbox with the child __icon.
+        // This icon bar will be transparent
+        &__checkbox:checked + &__button &__icon {
+            background-color: transparent;
+            // transform: rotateY(90deg);
+        }
+    
+        // Rotate ::before icon bar
+        &__checkbox:checked + &__button &__icon::before {
+            top: 0;
+            transform: rotateZ(135deg);
+        }
+        
+        // Rotate ::after icon bar
+        &__checkbox:checked + &__button &__icon::after {
+            top: 0;
+            transform: rotateZ(-135deg);
+        }
+    
+    /* NAVIGATION BACKGROUND */
+    &__background {
+        // physical attributes
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+
+        // location
+        position: fixed; // removed default document flow, relative to initial container 
+        top: 6.5rem;
+        right: 6.5rem;
+        z-index: 1000;
+
+        // transition effect
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        // Adjustments for tablet-portrait
+        @include respond(tablet-portrait) {
+            // physical attribute
+            height: 5rem;
+            width: 5rem;
+
+            // location
+            top: 4rem;
+            right: 4rem;
+        }
     }
+
+        // Background will expand after checkbox is checked
+        &__checkbox:checked ~ &__background {
+            transform: scale(80);
+        }
+
+    /* NAVIGATION LIST CONTAINER */
+    /* NAVIGATION LIST/ITEMS/LINKS */
 
 }
