@@ -26,4 +26,71 @@
             right: 3rem;
         }
     }
+
+     /* HAMBURGER MENU ICON */
+     &__icon {
+        position: relative;
+        margin-top: 3.5rem;
+
+        /* 
+            Using the psuedo-element ::before will create content 
+            at the starting tag and ::after at the end of the 
+            tag.
+        */
+
+        // Physical Attributes
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        // Location
+        &::before,
+        &::after {
+            content: "";
+            position: absolute; // within the button
+            left: 0;
+        }
+
+        // Vertical Location for before and after
+        &::before {top: -0.8rem;}
+        &::after {top: 0.8rem;}
+    }
+
+    // Hover over icon vertical location ::before
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    // Hover over icon vertical location ::after
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    /* HAMBURGER MENU ICON - CHECKED */
+    // After the __checkbox is checked, select the first element of __button 
+    // after __checkbox with the child __icon.
+    // This icon bar will be transparent
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+        // transform: rotateY(90deg);
+    }
+
+    // Rotate ::before icon bar
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotateZ(135deg);
+    }
+    
+    // Rotate ::after icon bar
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotateZ(-135deg);
+    }
+
 }
