@@ -7,6 +7,7 @@ x < 600px: ---------    Phone
 */
 .navigation {
   /* HAMBURGER MENU ICON */
+  /* HAMBURGER MENU ICON - CHECKED */
 }
 .navigation__checkbox {
   display: none;
@@ -67,6 +68,17 @@ x < 600px: ---------    Phone
 }
 .navigation__button:hover .navigation__icon::after {
   top: 1rem;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotateZ(135deg);
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotateZ(-135deg);
 }
 
 body {

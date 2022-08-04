@@ -72,4 +72,25 @@
         top: 1rem;
     }
 
+    /* HAMBURGER MENU ICON - CHECKED */
+    // After the __checkbox is checked, select the first element of __button 
+    // after __checkbox with the child __icon.
+    // This icon bar will be transparent
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+        // transform: rotateY(90deg);
+    }
+
+    // Rotate ::before icon bar
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotateZ(135deg);
+    }
+    
+    // Rotate ::after icon bar
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotateZ(-135deg);
+    }
+
 }
