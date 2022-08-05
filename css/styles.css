@@ -11,8 +11,7 @@ x < 600px: ---------    Phone
   /* ICON - HAMBURGER STYLE */
   /* HAMBURGER MENU ICON - CHECKED */
   /* NAVIGATION BACKGROUND */
-  /* NAVIGATION LIST CONTAINER */
-  /* NAVIGATION LIST/ITEMS/LINKS */
+  /* NAVIGATION Nav -> List -> Link */
 }
 .navigation__checkbox {
   display: none;
@@ -112,9 +111,66 @@ x < 600px: ---------    Phone
 .navigation__checkbox:checked ~ .navigation__background {
   transform: scale(80);
 }
+.navigation__nav {
+  height: 100vh;
+  width: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  transition: all 0.8s cubic-bezier(0.62, -0.04, 0.21, 1.21);
+}
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%;
+}
+.navigation__list {
+  width: 100%;
+  list-style: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+}
+@media only screen and (max-width: 56.25em) {
+  .navigation__list {
+    top: 45%;
+  }
+}
+.navigation__item {
+  margin: 1rem;
+}
+.navigation__link:link, .navigation__link:active {
+  display: inline-block;
+  padding: 3rem;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 230%;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.4s;
+}
+.navigation__link:link span, .navigation__link:active span {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: #28b485;
+  transform: translateX(1rem);
+}
 
 body {
-  background-color: ghostwhite;
+  background-color: lightblue;
 }
 
 /*# sourceMappingURL=styles.css.map */

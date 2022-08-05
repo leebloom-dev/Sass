@@ -6,13 +6,13 @@
 
     /* NAVIGATION BUTTON */
     &__button {
-        // location
+        // Location
         position: fixed;
         top: 6rem;
         right: 6rem;
         z-index: 2000;
 
-        // physical properties
+        // Physical Properties
         height: 7rem;
         width: 7rem;
         background-color: $color-white;
@@ -40,7 +40,7 @@
                 tag.
             */
 
-            // Physical Attributes
+            // Physical Properties
             &,
             &::before,
             &::after {
@@ -97,28 +97,28 @@
     
     /* NAVIGATION BACKGROUND */
     &__background {
-        // physical attributes
+        // Physical Properties
         height: 6rem;
         width: 6rem;
         border-radius: 50%;
         background-image: radial-gradient($color-primary-light, $color-primary-dark);
 
-        // location
+        // Location
         position: fixed; // removed default document flow, relative to initial container 
         top: 6.5rem;
         right: 6.5rem;
         z-index: 1000;
 
-        // transition effect
+        // Transition Effects
         transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
 
         // Adjustments for tablet-portrait
         @include respond(tablet-portrait) {
-            // physical attribute
+            // Physical Properties
             height: 5rem;
             width: 5rem;
 
-            // location
+            // Location
             top: 4rem;
             right: 4rem;
         }
@@ -129,7 +129,86 @@
             transform: scale(80);
         }
 
-    /* NAVIGATION LIST CONTAINER */
-    /* NAVIGATION LIST/ITEMS/LINKS */
+    /* NAVIGATION Nav -> List -> Link */
+    // links are hidden by default
+    &__nav {
+        // Physical Properties
+        height: 100vh;
+        width: 0;
+        opacity: 0;
 
+        // Location
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1500;
+
+        // Effects
+        transition: all 0.8s cubic-bezier(0.62, -0.04, 0.21, 1.21);
+    }
+
+    // Don't hide navigation after input is checked
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+        &__list {
+            // Physical Properties
+            width: 100%;
+            list-style: none;
+            
+            // Location
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+
+            // Adjustments for tablet-portrait
+            @include respond(tablet-portrait) {
+                top: 45%;
+            }
+        }
+
+            &__item {
+                margin: 1rem;
+            }
+            
+                &__link {
+                    // Default Link State (link, visited, hover, active)
+                    &:link,
+                    &:active {
+                        // Link's Container
+                        display: inline-block;
+                        padding: 3rem;
+                        background-image: linear-gradient(120deg, 
+                                                          transparent 0%, /* start at left */
+                                                          transparent 50%, /* ends to right */
+                                                          $color-white 50%);
+                        background-size: 230%;
+
+                        // Link's Text Physical Properties
+                        color: $color-white;
+                        font-size: 3rem;
+                        font-weight: 300;
+                        text-decoration: none;
+                        text-transform: uppercase;
+
+                        // Effects
+                        transition: all 0.4s;
+
+                        span {
+                            display: inline-block;
+                            margin-right: 1.5rem;
+                        }
+                    }
+
+                    &:hover,
+                    &:active {
+                        background-position: 100%;
+                        color: $color-primary-dark;
+                        transform: translateX(1rem);
+                    }
+                }
 }
