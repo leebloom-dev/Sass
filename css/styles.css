@@ -147,9 +147,9 @@ x < 600px: ---------    Phone
 .navigation__item {
   margin: 1rem;
 }
-.navigation__link:link, .navigation__link:active {
+.navigation__link:link, .navigation__link:visited {
   display: inline-block;
-  padding: 3rem;
+  padding: 1rem, 2rem;
   background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
   background-size: 230%;
   color: #fff;
@@ -159,7 +159,7 @@ x < 600px: ---------    Phone
   text-transform: uppercase;
   transition: all 0.4s;
 }
-.navigation__link:link span, .navigation__link:active span {
+.navigation__link:link span, .navigation__link:visited span {
   display: inline-block;
   margin-right: 1.5rem;
 }
