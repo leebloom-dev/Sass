@@ -169,6 +169,29 @@ x < 600px: ---------    Phone
   transform: translateX(1rem);
 }
 
+.header {
+  position: relative;
+  height: 85vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), #28b485), url(../img/manuel-cosentino-n--CMLApjfI-unsplash.jpg);
+  background-size: cover;
+  background-position: top;
+}
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+.header__logo {
+  height: 3.5rem;
+}
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 body {
   background-color: lightcyan;
 }
