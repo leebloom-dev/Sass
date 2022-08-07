@@ -1,0 +1,38 @@
+.header {
+    position: relative;
+    height: 85vh; // vh - Relative to 1% of the height of the viewport
+
+    // background properties
+    background-image: 
+        linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.8),
+            $color-primary-dark
+        ),
+        url(../img/manuel-cosentino-n--CMLApjfI-unsplash.jpg);
+    background-size: cover;
+    background-position: top;
+
+    // __logo-box, __logo
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+        &__logo {
+            height: 3.5rem;
+        }
+
+    // __text-box
+    &__text-box {
+        // location
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        // align text and button
+        text-align: center;
+    }
+}
