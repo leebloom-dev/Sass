@@ -1,0 +1,12 @@
+// IMPORT SASS PARTIALS
+
+// abstract
+@import "abstract/mixins";
+@import "abstract/variables";
+
+// layout
+@import "layout/navigation";
+
+body {
+    background-color: lavender;
+}

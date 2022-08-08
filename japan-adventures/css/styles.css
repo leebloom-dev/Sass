@@ -1,0 +1,56 @@
+.navigation {
+  /* NAVIGATION CHECKBOX */
+  /* NAVIGATION BUTTON */
+  /* NAVIGATION BUTTON ICON */
+  /* HOVERING NAVIGATION BUTTON */
+}
+.navigation__checkbox {
+  display: none;
+}
+.navigation__button {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  background-color: ghostwhite;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  z-index: 2000;
+  text-align: center;
+  cursor: pointer;
+}
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem;
+}
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  width: 3rem;
+  height: 2px;
+  background-color: black;
+  display: inline-block;
+  transition: all 0.3s;
+}
+.navigation__icon::before, .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.navigation__icon::before {
+  top: -0.8rem;
+}
+.navigation__icon::after {
+  top: 0.8rem;
+}
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem;
+}
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem;
+}
+
+body {
+  background-color: lavender;
+}
+
+/*# sourceMappingURL=styles.css.map */
