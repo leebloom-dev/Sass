@@ -29,6 +29,10 @@
         /* NAVIGATION BUTTON ICON */
         &__icon {
 
+            // Location
+            position: relative;
+            margin-top: 3.5rem;
+
             // Physical Properites (before, original, after)
             &,
             &::before,
@@ -39,10 +43,6 @@
                 display: inline-block;
                 transition: all 0.3s;
             }
-
-            // Location
-            position: relative;
-            margin-top: 3.5rem;
 
             &::before,
             &::after {
@@ -64,5 +64,26 @@
         &__button:hover &__icon::after {
             top: 1rem;
         }
+
+        /* HAMBURGER MENU ICON - CHECKED */
+        // After __checkbox is checked, selects the first element of __button
+        // after __checkbox with the child __icon.
+        // This icon bar will be transparent.
+        &__checkbox:checked + &__button &__icon {
+            background-color: transparent;
+        }
+
+        // Rotate ::before icon bar
+        &__checkbox:checked + &__button &__icon::before {
+            top: 0;
+            transform: rotateZ(135deg);
+        }
+
+        // Rotate ::after icon bar
+        &__checkbox:checked + &__button &__icon::after {
+            top: 0;
+            transform: rotateZ(-135deg);
+        }
+
 
 }
