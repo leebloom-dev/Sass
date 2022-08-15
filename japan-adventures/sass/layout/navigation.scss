@@ -85,5 +85,30 @@
             transform: rotateZ(-135deg);
         }
 
+    /* NAVIGATION BACKGROUND */
+    &__background {
+        
+        // Physical Properties
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+
+        // Location
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        z-index: 1000;
+        
+        // Transition Effects
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    }
+
+        // For all __background in __checkbox:checked
+        // Navigation background expands after checkbox is checked.
+        &__checkbox:checked ~ &__background {
+            transform: scale(80);
+        }
 
 }

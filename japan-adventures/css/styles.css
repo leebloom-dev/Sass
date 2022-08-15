@@ -4,6 +4,7 @@
   /* NAVIGATION BUTTON ICON */
   /* HOVERING NAVIGATION BUTTON */
   /* HAMBURGER MENU ICON - CHECKED */
+  /* NAVIGATION BACKGROUND */
 }
 .navigation__checkbox {
   display: none;
@@ -59,6 +60,20 @@
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
   top: 0;
   transform: rotateZ(-135deg);
+}
+.navigation__background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background-image: radial-gradient(#F2666C, #8F1D21);
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80);
 }
 
 body {
