@@ -1,3 +1,10 @@
+/*
+x < 600px: ---------    Phone
+600px - 900px: -----    Tablet Portrait
+900px - 1200px: ----    Tablet Landscape
+1200px - 1800px: ---    Default
+1800px < x: --------    Big Monitors
+*/
 .navigation {
   /* NAVIGATION CHECKBOX */
   /* NAVIGATION BUTTON */
@@ -21,6 +28,17 @@
   z-index: 2000;
   text-align: center;
   cursor: pointer;
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+}
+@media only screen and (max-width: 56.25em) {
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
 }
 .navigation__icon {
   position: relative;
@@ -71,6 +89,19 @@
   right: 6.5rem;
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+}
+@media only screen and (max-width: 56.25em) {
+  .navigation__background {
+    height: 5rem;
+    width: 5rem;
+    top: 4rem;
+    right: 4rem;
+  }
 }
 .navigation__checkbox:checked ~ .navigation__background {
   transform: scale(80);
