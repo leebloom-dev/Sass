@@ -18,6 +18,9 @@ x < 600px: ---------    Phone
     */
 
     // Phone (37.5em)
+    @if $device == phone {
+        @media only screen and (max-width: 37.5em) {@content};
+    }
 
     // Tablet Portrait (56.25em)
     @if $device == tablet-portrait {
